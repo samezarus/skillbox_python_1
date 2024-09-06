@@ -23,7 +23,6 @@ print('Задача 7. Пропавшая карточка')
 try:
     # Инициализируем
     cards_sum_full = 0
-    cards_sum = 0
 
     cards_count = int(input(f"Введите количество карточек: "))
     print()
@@ -32,12 +31,14 @@ try:
     for item in range(1, cards_count + 1):
         cards_sum_full += item
 
+    found_card = cards_sum_full
+
     # Вычисляем сумму карточек в наличии
     for card in range(cards_count - 1):
-        cards_sum += int(input(f"Введите номер оставшейся карточки: "))
+        found_card -= int(input(f"Введите номер оставшейся карточки: "))
 
     print()
-    print(f"Номер пропавшей карточки: {cards_sum_full - cards_sum}")
+    print(f"Номер пропавшей карточки: {found_card}")
 
 except Exception as e:
     print(f"Что-то пошло не по плану: {e}")
