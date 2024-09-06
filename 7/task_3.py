@@ -15,3 +15,17 @@ print('Задача 3. Факториал')
 # Введите число: 5
 # Факториал числа 5 равен 120
 
+try:
+    # Инициализируем
+    factorial = 1
+
+    num_n = int(input("Введите число: "))
+
+    for item in range(1, num_n + 1):
+        factorial *= item
+
+    print()
+    print(f"Факториал числа {num_n} равен {factorial}")
+
+except Exception as e:
+    print(f"Что-то пошло не по плану: {e}")

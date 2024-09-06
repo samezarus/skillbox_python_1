@@ -18,3 +18,28 @@ print('Задача 7. Пропавшая карточка')
 
 # Номер пропавшей карточки: 2
 
+""" Если честно, я незнаю как решить эту задача без листа """
+
+try:
+    # Инициализируем
+    cards = list()
+
+    cards_count = int(input(f"Введите количество карточек: "))
+
+    for card in range(cards_count - 1):
+        cards.append(int(input(f"Введите номер оставшейся карточки: ")))
+
+    cards.sort()
+
+    next_card = 0
+
+    for card in cards:
+        if card != next_card + 1:
+            print()
+            print(f"Номер пропавшей карточки: {next_card + 1}")
+            break
+        next_card = card
+
+except Exception as e:
+    print(f"Что-то пошло не по плану: {e}")
+

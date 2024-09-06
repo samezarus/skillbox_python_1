@@ -9,3 +9,17 @@ print('Задача 6. Замечательные числа')
 # 15 -> 1*5*3 = 15 - получившееся число равно оригиналу, значит число надо вывести
 # 16 -> 1*6*3 = 18 - число выводить не нужно, 18 не равно 16
 
+try:
+    # Инициализируем
+    factor = 3
+
+    for item in range(10, 100):
+        first = item // 10
+        second = item % 10
+        test = first * second * factor
+
+        if item == test:
+            print(f"{item} = {first}*{second}*{factor}")
+
+except Exception as e:
+    print(f"Что-то пошло не по плану: {e}")
