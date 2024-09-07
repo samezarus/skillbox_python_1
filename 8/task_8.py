@@ -35,21 +35,34 @@ print('Задача 8. Кинотеатр')
 # Введите кол-во девочек: 1
 # Ответ: Нет решения
 
-""" В процессе !!! """
+""" 
+Ддолго ломал голову в итоге нагуглил
+"""
 
 try:
     # Инициализируем
-    boys = 5
-    girls = 5
-    # boys = int(input("Введите количество мальчиков: "))
-    # girls = int(input("Введите количество девочек: "))
+    answer = ''
 
-    # Если мальчиков бьльше девочек
-    if boys > girls:
-        pass
-    # Если девочек бьльше мальчиков
+    boys = 5
+    girls = 9
+    # boys = int(input('Введите количество мальчиков: '))
+    # girls = int(input('Введите количество девочек: '))
+
+    if (boys > 2 * girls) or (girls > 2 * boys):
+        print('Нет решения')
+    elif boys >= girls:
+        k = boys - girls
+        for bgb in range(k):
+            answer += 'BGB'
+        for bg in range(girls - k):
+            answer += 'BG'
     else:
-        pass
+        k = girls - boys
+        for gbg in range(k):
+            answer += 'GBG'
+        for gb in range(boys - k):
+            answer += 'GB'
+    print(answer)
 
 except Exception as e:
     print(f"Что-то пошло не по плану: {e}")
