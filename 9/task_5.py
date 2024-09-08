@@ -14,8 +14,30 @@ print('Задача 5. Великий и могучий')
 # Введите текст: Меня зовут Василий
 # Самое длинное слово, 7 букв
 
+"""
+Понимаю что нужно было использовать вложенность циклов for и искать по пробелам слова, но через split чуть короче )
+"""
+
 try:
     # Инициализируем
+    max_chars: int = 0
+
+    text: str = input("Введите текст: ")
+
+    words = text.split(' ')
+
+    for word in words:
+        if max_chars == 0:
+            max_chars = len(word)
+        else:
+            if len(word) > max_chars:
+                max_chars = len(word)
+            else:
+                continue
+
+    print()
+    print(f"Самое длинное слово, {max_chars} букв")
+
 
 except Exception as e:
     print(f"Что-то пошло не по плану: {e}")
