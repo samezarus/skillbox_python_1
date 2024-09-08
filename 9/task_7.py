@@ -16,18 +16,22 @@ print('Задача 7. Метод бутерброда')
 # Слово: | s | a | n | d | w | i | c | h |
 # Шифр:  | s | h | a | c | n | i | d | w |
 
-def pack(s: str)->str:
-    result = ""
-
-    if len(s) > 0:
-        for item in str:
-            print(item)
-
-    return result
-
 try:
     # Инициализируем
-    pack()
+    # Строка из нечётных индексов в строке
+    result: str = ""
+    # Строка из чётных индексов в строке
+    result_2: str = ""
+
+    text: str = input("Введите зашифрованное сообщение: ")
+
+    for index, char in enumerate(text):
+        if index % 2 != 0:
+            result = char + result
+        else:
+            result_2 += char
+
+    print(f"Расшифрованное сообщение: {result_2 + result}")
 
 except Exception as e:
     print(f"Что-то пошло не по плану: {e}")
