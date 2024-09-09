@@ -13,3 +13,13 @@ print('Задача 8. Яма ')
 # 5432..2345
 # 5432112345
 
+nums = 5
+
+cals = nums * 2
+
+points = cals - 2
+
+
+for row in range(nums, 0, -1):
+    print (row)
+    # for cal in range(cals):
