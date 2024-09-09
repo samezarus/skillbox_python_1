@@ -17,6 +17,19 @@ print('Задача 7. Пирамидка 2')
 """
 Это просто жесть, убил весь вечер, но зато моя пирамида иаштабируется в любом количестве уровней
 
+            1
+         3     5
+      7     9     11
+   13    15    17    19
+21    23    25    27    29
+
+
+            1     
+         3     5     
+      7     9     11    
+   13    15    17    19    
+21    23    25    27    29    
+
 """
 
 
@@ -74,7 +87,7 @@ try:
     num = 1
 
     # Кол-во уровней пирамиды
-    levels: int = 5
+    levels: int = 30
     # levels: int = int(input("Введите количество уровней пирамиды: "))
 
     # Максимальное число в пирамиде для вычисления его строковой длины
@@ -83,15 +96,15 @@ try:
     # Кол-во отступов слева
     indents: int = levels -1
 
-    # brick_len = ' ' * 6
-    # indent_len = brick_len + '  '
+    indent_len = ' ' * (len(str(max_num)) + 1)
+    brick_divider = indent_len + ' '
+
 
     # Расстояние между цифрами (кирпичами)
-    brick_divider = ' ' * 2
+    # brick_divider = '  ' * 2
 
     # Размер отступа
-    print(max_num)
-    indent_len = brick_divider + ' ' * len(str(max_num))
+    # indent_len = brick_divider + ' ' * len(str(max_num))
 
     # Обход уровней пирамиды
     for level in range(levels):
@@ -104,8 +117,10 @@ try:
             print(num_for_print(max_num, num), end=brick_divider)
             num += 2
 
+            # print(num, end=brick_divider)
+
         # После прохода каждого уровня добавляем +2 кирпича относительно предыдущего
-        bricks += 2
+        bricks += 1
 
         # После прохода каждого уровня уменьшаем отступ слева
         indents -= 1
