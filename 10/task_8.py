@@ -13,13 +13,43 @@ print('Задача 8. Яма ')
 # 5432..2345
 # 5432112345
 
-nums = 5
 
-cals = nums * 2
+try:
+    # Число уровней
+    # levels: int = 5
+    levels: int = int(input("Введите количество уровней ямы: "))
+    print()
 
-points = cals - 2
+    # Кол-во символов (микс из цифр и точек) в строке (item-е уровня)
+    cals: int = levels * 2
 
+    # Чистое кол-во цифр в строке (без точек)
+    nums_on_level: int = levels - 1
 
-for row in range(nums, 0, -1):
-    print (row)
-    # for cal in range(cals):
+    # Чистое кол-во точек в строке (без цифр)
+    points: int = cals - 2
+
+    # Обход уровней ямы
+    for row in range(levels):
+        left_str: str = ""  # Левая часть результата
+
+        middle_str: str = ""  # Средняя часть результата
+
+        right_str: str = ""  # Правая часть результата
+
+        # Обход уровня ямы
+        for col in range(levels, nums_on_level, -1):
+            left_str += str(col)
+
+            right_str = str(col) + right_str
+
+        middle_str += '.' * points
+
+        print(f"{left_str}{middle_str}{right_str}")
+
+        nums_on_level -= 1
+
+        points -= 2
+
+except Exception as e:
+    print(f"Что-то пошло не по плану: {e}")
