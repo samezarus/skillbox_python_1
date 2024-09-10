@@ -76,12 +76,13 @@ try:
     # Кол-во уровней пирамиды
     # levels: int = 30
     levels: int = int(input("Введите количество уровней пирамиды: "))
+    print()
 
     # Максимальное число в пирамиде для вычисления его строковой длины
     max_num = get_max_num(levels)
 
     # Кол-во отступов слева
-    indents: int = levels -1
+    indents: int = levels - 1
 
     # Размер отступа слева
     indent_len = ' ' * (len(str(max_num)) + 1)
