@@ -29,3 +29,37 @@ print('Задача 3. Аналог Steam')
 # Прошло 4 сек. Скачано 108 из 123 Мб (88%)
 # Прошло 5 сек. Скачано 123 из 123 Мб (100%)
 
+
+"""
+
+%
+
+x% = 27 / 123 * 100
+
+"""
+
+try:
+    # Инициализируем
+    # Размер приложения
+    # app_size: float = 123
+    app_size: float = float(input("Укажите размер файла для скачивания: "))
+
+    # Скорость скачивания
+    # speed: float = 27
+    speed: float = float(input("Какова скорость вашего соединения? "))
+
+    print()
+
+    # Кол-во скаченного в очередную секунду
+    download: float = 0
+
+    for sec in range(1, round(app_size/speed) + 1):
+        download += speed
+
+        if download > app_size:
+            download = app_size
+
+        print(f"Прошло {sec} сек. Скачано {int(download)} из {int(app_size)} Мб ({round(download / app_size * 100)})")
+
+except Exception as e:
+    print(f"Что-то пошло не по плану: {e}")

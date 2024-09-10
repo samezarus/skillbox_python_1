@@ -19,3 +19,24 @@ print('Задача 7. За что?')
 #
 # Наибольшее число: 10
 
+
+try:
+    # Инициализируем
+    # Первое число для сравнения
+    num_a: float = float(input("Введите первое число: "))
+
+    # Второе число для сравнения
+    num_b: float = float(input("Введите второе число: "))
+
+    max_num: float = (abs(num_a - num_b) + (num_a + num_b)) / 2
+
+    print(f"Наибольшее число: {max_num}")
+
+except Exception as e:
+    print(f"Что-то пошло не по плану: {e}")
+
+a = 5
+b = 7
+
+
+

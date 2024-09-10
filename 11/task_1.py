@@ -15,3 +15,29 @@ print('Задача 1. Конвертация')
 # Мы живём в альтернативной реальности,
 # где 1 евро = 1.25 доллара, а 1 доллар = 60.87 рублей.
 
+
+try:
+    # Инициализируем
+    # Курс доллара
+    dollar_exchange: float = 60.87
+
+    # Курс евро
+    euro_exchange: float = dollar_exchange * 1.25
+
+    # Сумма покупок
+    goods_price: float = .0
+
+    # Проверка ввода положительной суммы покупок
+    while True:
+        goods_price = float(input("Введите сумма покупок в евро: "))
+        if goods_price > 0:
+            break
+
+    # евро -> рубли
+    goods_price = goods_price * euro_exchange
+
+    print()
+    print(f"Сумма ваших покупок = {round(goods_price, 2)} руб.")
+
+except Exception as e:
+    print(f"Что-то пошло не по плану: {e}")

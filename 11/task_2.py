@@ -1,3 +1,6 @@
+from math import log, exp, ceil
+
+
 print('Задача 2. Грубая математика')
 
 # В одном аналитическом центре,
@@ -27,3 +30,43 @@ print('Задача 2. Грубая математика')
 # Введите число: -5.9
 # x = -6   exp(x) = 0.0024787521766663585
 
+
+def custom_round(num_: float) -> int:
+    """
+    Кастомное округление дробного числа в зависимости от его ТТХ
+
+    :param num_: дробное число для округления
+    :return: результат округления
+    """
+
+    # положительные числа округляются вверх
+    if num_ > 0:
+        return ceil(num_)
+    # отрицательные округляются вниз
+    else:
+        return (ceil(num_ * - 1)) * - 1
+
+
+try:
+    # Инициализируем
+    # Количество итераций для ввода чисел
+    nums: int = int(input("Введите кол-во чисел: "))
+
+    for item in range(1, nums + 1):
+        print()
+        # Число от пользователя для последующей обработки
+        num: float = float(input(f"Введите {item}-е число: "))
+
+        # Число с нужным округлением
+        new_num: int = custom_round(num)
+
+        # Левая повторяющаяся часть строки верная для обоих исходов задачи
+        res_str: str = f"x = {new_num}\t"
+
+        if num > 0:
+            print(res_str + f"log({new_num}) = {log(new_num)}")
+        else:
+            print(res_str + f"exp({new_num}) = {exp(new_num)}")
+
+except Exception as e:
+    print(f"Что-то пошло не по плану: {e}")
