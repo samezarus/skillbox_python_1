@@ -16,3 +16,26 @@ print('Задача 2. Функция в функции')
 #
 # Помогите Евгению и реализуйте такую программ
 
+
+def positive():
+    print("Положительное")
+
+
+def negative():
+    print("Отрицательное")
+
+
+def test():
+    num = int(input("Введите число: "))
+
+    if num > - 1:
+        positive()
+    else:
+        negative()
+
+
+try:
+    test()
+
+except Exception as e:
+    print(f"Что-то пошло не по плану: {e}")

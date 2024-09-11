@@ -24,3 +24,25 @@ print('Задача 4. Число наоборот')
 #
 # Кстати, нули, которые мы убрали, называются ведущими.
 
+def reverse_num_str(num: int) -> str:
+    return str(num)[::-1]
+
+
+def reverse_num_int(num: int) -> str:
+    return int(reverse_num_str(num))
+
+
+try:
+    # Инициализируем
+    user_num = int(input("Введите число: "))
+    print()
+
+    # Обработаем и отрицательные тоже
+    if abs(user_num) != 0:
+        print(f"Число наоборот: {reverse_num_str(user_num)}")
+        print(f"Число наоборот (с удалением ведущих нулей): {reverse_num_int(user_num)}")
+    else:
+        print("Программа завершена!")
+
+except Exception as e:
+    print(f"Что-то пошло не по плану: {e}")

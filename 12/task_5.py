@@ -20,3 +20,25 @@ print('Задача 5. Текстовый редактор')
 # Количество цифр 0: 2
 # Количество букв л: 1
 
+
+def count_letters(text: str, num: int, word: str) -> dict:
+    return {
+        "nums": text.count(str(num)),
+        "words": text.count(word),
+    }
+
+
+try:
+    # Инициализируем
+    user_text = input("Введите текст: ")
+    user_num = int(input("Какую цифру ищем? "))
+    user_word = input("Какую букву ищем? ")
+
+    res = count_letters(user_text, user_num, user_word)
+
+    print()
+    print(f"Количество цифр {user_num}: {res["nums"]}")
+    print(f"Количество букв {user_word}: {res["words"]}")
+
+except Exception as e:
+    print(f"Что-то пошло не по плану: {e}")

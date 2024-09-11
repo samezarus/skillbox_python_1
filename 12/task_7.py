@@ -25,11 +25,17 @@ print('Задача 7. Недоделка')
 def rock_paper_scissors():
     #Здесь будет игра "Камень, ножницы, бумага"
 
+
 def guess_the_number():
     #Здесь будет игра "Угадай число"
+
 
 def main_menu():
     #Здесь главное меню игры
 
-main_menu()
 
+try:
+    main_menu()
+
+except Exception as e:
+    print(f"Что-то пошло не по плану: {e}")
