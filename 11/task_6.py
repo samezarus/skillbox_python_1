@@ -18,7 +18,6 @@ print('Задача 6. Ход конём')
 # Да, конь может ходить в эту точку.
 
 
-
 """
 Референсы
 
@@ -41,46 +40,57 @@ if (x - x_new == 1 and y - y_new = 2) or (x - x_new == 2 and y - y_new = 1):
 
 """
 
+
 def in_range(i: float) -> bool:
     """
-    Проверка вводимого числа на меньше 1 и больше ноля
+    Проверка вводимого числа на меньше 0.8 и больше 0
 
     :param i: Проверяемое число
     :return: Результат
     """
 
     # принадлежит
-    if (i < 1) and (i < 8):
+    if (i < 0.8) and (i > 0):
         return True
     # не принадлежит
     else:
         return False
 
 
+def check_input(title: str) -> float:
+    """
+    Проверяем запрашивомое число на наши требования
+
+    :param title: Описательная часть запрашиваемого числа
+    :return: результат в види числа
+    """
+
+    result: float
+
+    while True:
+        try:
+            result = float(input(title))
+        except:
+            continue
+
+        if in_range(result):
+            break
+
+    return result
+
+
 try:
-    print("Значения X и Y должны быть дробными и больше ноля но меньше единицы")
+    print("Значения X и Y должны быть дробными и больше 0, но меньше 0.8")
     print()
 
     # Инициализируем
-    while True:
-        horse_x: float = float(input("Введите X местоположение коня: "))
-        if in_range(horse_x):
-            break
+    horse_x: float = check_input("Введите X местоположение коня: ")
+    horse_y: float = check_input("Введите Y местоположение коня: ")
 
-    while True:
-        horse_y: float = float(input("Введите Y местоположение коня: "))
-        if in_range(horse_y):
-            break
+    print()
 
-    while True:
-        new_horse_x: float = float(input("Введите X местоположение точки на доске: "))
-        if in_range(new_horse_x):
-            break
-
-    while True:
-        new_horse_y: float = float(input("Введите Y местоположение точки на доске: "))
-        if in_range(new_horse_y):
-            break
+    new_horse_x: float = check_input("Введите X местоположение точки на доске: ")
+    new_horse_y: float = check_input("Введите Y местоположение точки на доске: ")
 
     # horse_x_int: int = 0
     # horse_y_int: int = 1
@@ -93,16 +103,16 @@ try:
     new_horse_y_int: int = int(new_horse_y * 10)
 
     print()
-    print(f"Конь в клетке [ {horse_x_int}:{horse_y_int} ]. Точка в клетке [ {new_horse_x_int}:{new_horse_y_int} ]")
+    print(f"Конь в клетке | {horse_x_int} : {horse_y_int} |. Точка в клетке | {new_horse_x_int} : {new_horse_y_int} |.")
     print()
 
     # Магическое число, которое говорит может ли конь пройти буквой "Г" в указанную точку
     super_num: int = abs(new_horse_x_int - horse_x_int) + abs(new_horse_y_int - horse_y_int)
 
     if super_num == 3:
-        print(f"Да, конь может ходить в эту точку")
+        print(f"Да, конь может ходить в эту точку.")
     else:
-        print(f"Нет, конь не может ходить в эту точку")
+        print(f"Нет, конь не может ходить в эту точку.")
 
 except Exception as e:
     print(f"Что-то пошло не по плану: {e}")

@@ -34,9 +34,3 @@ try:
 
 except Exception as e:
     print(f"Что-то пошло не по плану: {e}")
-
-a = 5
-b = 7
-
-
-
