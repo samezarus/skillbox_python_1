@@ -50,12 +50,12 @@ def custom_round(num_: float) -> int:
 try:
     # Инициализируем
     # Количество итераций для ввода чисел
-    nums: int = int(input("Введите кол-во чисел: "))
+    nums= int(input("Введите кол-во чисел: "))
 
     for item in range(1, nums + 1):
         print()
         # Число от пользователя для последующей обработки
-        num: float = float(input(f"Введите {item}-е число: "))
+        num = float(input(f"Введите {item}-е число: "))
 
         # Число с нужным округлением
         new_num: int = custom_round(num)

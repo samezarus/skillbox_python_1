@@ -24,3 +24,35 @@ print('Задача 5. Маятник ')
 
 # Маятник считается остановившимся через 27 колебаний
 
+def amplitude_reducer(start_num: float, stop_num: float) -> int:
+    """
+    Определяем сколько раз качнётся маятник, прежде чем он, по нашему мнению, остановится
+
+    :param start_num: начальная амплитуда
+    :param stop_num: амплитуда остановки
+    :return: кол-во колебаний
+    """
+
+    result: int = 0
+
+    amp = start_num
+
+    while amp >= stop_num:
+        result += 1
+
+        amp -= (amp / 100) * 8.4
+        # print(amplitude)
+
+    return result
+
+
+try:
+    # Инициализируем
+    amplitude = float(input("Введите начальную амплитуду: "))
+    stop_amplitude = float(input("Введите амплитуду остановки: "))
+    print()
+
+    print(f"Маятник считается остановившимся через {amplitude_reducer(amplitude, stop_amplitude)} колебаний")
+
+except Exception as e:
+    print(f"Что-то пошло не по плану: {e}")
