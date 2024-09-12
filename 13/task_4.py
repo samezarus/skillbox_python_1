@@ -45,7 +45,6 @@ print('Задача 4. Недоделка 2')
 #         print('\nСумма чисел:', first_n + second_n)
 
 
-
 def count_numbers(num: int) -> int:
     # получает число и возвращает количество цифр в числе
     result: int = 0

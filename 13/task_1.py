@@ -23,16 +23,54 @@ print('Задача 1. Урок информатики 2')
 # Введите число: 0.0012
 # Формат плавающей точки: x = 1.2 * 10 ** -3
 
-x = 92345
 
-count = 0
-temp = x
+def rate_num(num: float | int) -> int:
+    """
+    Определяем разряд числа
 
-while temp // 10 != 0:
-    count += 1
-    temp //= 10
-    print(temp)
+    :param num: число
+    :return: разряд
+    """
 
-print(count)
+    result: int = 0
 
-print(f"Формат плавающей точки: x = {x / 10 ** count} * 10 ** {count}")
+    temp = num
+
+    if num > 1:
+        while temp > 0:
+            result += 1
+            temp //= 10
+
+        return result - 1
+    else:
+        while temp < 1:
+            result += 1
+            temp *= 10
+
+        return result * -1
+
+
+def floating_point(num: float | int):
+    rate = rate_num(num)
+
+    if num > 0:
+        if rate > 1:
+            print(f"Формат плавающей точки: x = {num / 10 ** rate} * 10 ** {rate}")
+        else:
+            print(f"Формат плавающей точки: x = {num * 10 ** abs(rate)} * 10 ** {rate}")
+    else:
+        print("Число не соответствует условию задачи")
+
+
+try:
+    # Инициализируем
+
+    user_num = float(input("Введите число: "))
+
+    # floating_point(92345)
+    # floating_point(0.0012)
+
+    floating_point(user_num)
+
+except Exception as e:
+    print(f"Что-то пошло не по плану: {e}")
