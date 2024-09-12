@@ -56,6 +56,7 @@ pc_rps_item = 1  # Ножницы
 def rock_paper_scissors():
     # Здесь будет игра "Камень, ножницы, бумага"
 
+    # Печатаем варианты предметов
     for key in rps_items:
         print(f'{key} - {rps_items[key].get("title")}')
 
@@ -69,12 +70,17 @@ def rock_paper_scissors():
             print(f"{rps_items[user_rps_item].get("title")} на {rps_items[pc_rps_item].get("title")} - нмчья")
             print()
 
+    print()
     print(f"И так, я загадал {rps_items[pc_rps_item].get("title")}, а вы выбрали {rps_items[user_rps_item].get("title")}")
+    print()
 
-    result_game = f"Т.к. "
+    if rps_items[pc_rps_item].get("loser") == user_rps_item:
+        print(f"Я победил, т.к. {rps_items[pc_rps_item].get("title")} {rps_items[pc_rps_item].get("win")} {rps_items[user_rps_item].get("title")}")
+    else:
+        print(f"Вы победили, т.к. {rps_items[user_rps_item].get("title")} {rps_items[user_rps_item].get("win")} {rps_items[pc_rps_item].get("title")}")
 
-    print(f"")
 
+    print()
     print("Игра окончена !")
 
 
@@ -107,12 +113,28 @@ menu_items = {
 
 def main_menu():
     #Здесь главное меню игры
-    pass
+    print("Для вас доступны следующие игры:")
+    print()
+
+    for key in menu_items:
+        print(f"{key} - {menu_items[key].get("title")}")
+
+    while True:
+        user_menu_item = int(input("Ваш выбор: "))
+        if user_menu_item in menu_items.keys(): break
+
+    print()
+    print(f"Отлично, вы выбрали игру {menu_items[user_menu_item].get("title")}")
+    print()
+
+    print("Правила:")
+    print(menu_items[user_menu_item].get("rules"))
+    print()
+
+    menu_items[user_menu_item].get("link")()
 
 try:
     main_menu()
-
-    rock_paper_scissors()
 
 except Exception as e:
     print(f"Что-то пошло не по плану: {e}")
