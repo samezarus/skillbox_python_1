@@ -8,7 +8,7 @@ def get_gcd(num1: int, num2: int) -> int:
 
     min_num = num1 if num1 < num2 else num2
 
-    for d in range(1, min_num):
+    for d in range(1, min_num + 1):
         if num1 % d == 0 and num2 % d == 0:
             if d > result: result = d
 
