@@ -9,3 +9,30 @@ print('Задача 2. Функция максимума')
 # 2) maximum_of_three — функция принимает три числа и возвращает одно (наибольшее из трёх); при этом она должна использовать для сравнений первую функцию maximum_of_two.
 
 
+def maximum_of_two(num1: float, num2: float) -> float:
+    return (abs(num1 - num2) + (num1 + num2)) / 2
+
+
+def maximum_of_three(num1: float, num2: float, num3: float) -> float:
+    temp = maximum_of_two(num1, num2)
+
+    return maximum_of_two(temp, num3)
+
+
+try:
+    # Инициализируем
+    # Первое число для сравнения
+    user_num_1 = float(input("Введите первое число: "))
+
+    # Второе число для сравнения
+    user_num_2  = float(input("Введите второе число: "))
+
+    # Третье число для сравнения
+    user_num_3 = float(input("Введите третье число: "))
+
+    max_num  = maximum_of_three(user_num_1, user_num_2, user_num_3)
+
+    print(f"Наибольшее число: {max_num}")
+
+except Exception as e:
+    print(f"Что-то пошло не по плану: {e}")

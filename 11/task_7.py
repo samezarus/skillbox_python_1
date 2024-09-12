@@ -23,10 +23,10 @@ print('Задача 7. За что?')
 try:
     # Инициализируем
     # Первое число для сравнения
-    num_a: float = float(input("Введите первое число: "))
+    num_a = float(input("Введите первое число: "))
 
     # Второе число для сравнения
-    num_b: float = float(input("Введите второе число: "))
+    num_b  = float(input("Введите второе число: "))
 
     max_num: float = (abs(num_a - num_b) + (num_a + num_b)) / 2
 

@@ -61,17 +61,13 @@ def count_numbers(num: int) -> int:
 
 def change_number(num: int) -> int:
     # получает число, меняет в нём местами первую и последнюю цифры и возвращает изменённое число
-    result: int = 0
 
     num_len = count_numbers(num)
 
-    if num_len > 1:
-        last_digit = num % 10
-        first_digit = num // 10 ** (num_len - 1)
-        between_digits = num % 10 ** (num_len - 1) // 10
-        result = last_digit * 10 ** (num_len - 1) + between_digits * 10 + first_digit
-
-    return result
+    last_digit = num % 10
+    first_digit = num // 10 ** (num_len - 1)
+    between_digits = num % 10 ** (num_len - 1) // 10
+    return last_digit * 10 ** (num_len - 1) + between_digits * 10 + first_digit
 
 
 def main():
@@ -79,10 +75,31 @@ def main():
     # выполняет дополнительные проверки и вызывает функции 1 и 2 для
     # выполнения задачи (проверки и изменения двух чисел).
 
-    user_num = int(input("Введите число: "))
+    user_num1 = int(input("Введите первое число: "))
 
-    user_num_rev = change_number(user_num)
-
-    if user_num_rev > 0:
-        pass
+    if count_numbers(user_num1) < 3:
+        print("В первом числе меньше трёх цифр.")
     else:
+        user_num1_rev = change_number(user_num1)
+
+        print(f"Изменённое первое число: {user_num1_rev}")
+
+        print()
+        user_num2 = int(input("Введите второе число: "))
+
+        if count_numbers(user_num2) < 4:
+            print("Во втором числе меньше четырёх цифр.")
+        else:
+            user_num2_rev = change_number(user_num2)
+
+            print(f"Изменённое первое число: {user_num2_rev}")
+
+            print()
+            print(f"Сумма чисел: {user_num1_rev + user_num2_rev}")
+
+
+try:
+    main()
+
+except Exception as e:
+    print(f"Что-то пошло не по плану: {e}")
